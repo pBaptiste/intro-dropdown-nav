@@ -19,7 +19,7 @@ const desktopImg = await getImage({
 ---
 
 <picture>
-    <source media="(max-width: 767px)" src={mobileImg.src} />
-    <source media="(min-width: 768px)" src={desktopImg.src} />
+    <source media="(max-width: 767px)" srcset={mobileImg.src} />
+    <source media="(min-width: 768px)" srcset={desktopImg.src} />
     <img src={desktopImg.src} alt={alt} class="w-full h-full object-cover">
 </picture>

@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import logo from '../images/logo.svg'
+import iconMenu from '../images/icon-menu.svg'
+import iconArrowDown from '../images/icon-arrow-down.svg'
+import FeaturesMenu from '../components/FeaturesMenu.astro'
+import CompanyMenu from "./CompanyMenu.astro";
+import MobileMenu from "./MobileMenu.astro";
+---
+
+<header class="w-full pt-4 md:pt-6 px-4 md:px-10 pb-6 lg:pb-[67px]">
+    <nav class="flex justify-between items-center">
+        <div class="flex gap-[60px] items-center">
+            <div><Image src={logo} alt="Site Logo" width={87} height={35}/></div>
+            <ul class="hidden lg:flex gap-10 items-center">
+                <li class="relative">
+                    <button class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4 flex items-center gap-[9px] show">
+                        Features
+                        <Image src={iconArrowDown} alt='' width={8} height={4}/>
+                    </button>
+                    <FeaturesMenu />
+                </li>
+                <li class="relative">
+                    <button class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4 flex items-center gap-[9px] show">
+                        Company
+                        <Image src={iconArrowDown} alt='' width={8} height={4}/>
+                    </button>
+                    <CompanyMenu />
+                </li>
+                <li>
+                    <a href="#" class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4">Careers</a>
+                </li>
+                <li>
+                    <a href="#" class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4">About</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-10">
+            <a href="#" class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4">Login</a>
+            <a href="#" class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4 border-[1.5px] border-primary hover:border-accent rounded-[14px] py-[13px] px-[23px]">Register</a>
+        </div>
+       
+        <div class="lg:hidden">
+            <button aria-label="Open mobile menu" class="show">
+                <Image src={iconMenu} alt=''/>
+            </button>
+            <MobileMenu />
+        </div>
+       
+    </nav>
+
+   
+</header>

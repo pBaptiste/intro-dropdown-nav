@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+import todoIcon from '../images/icon-todo.svg'
+import calendarIcon from '../images/icon-calendar.svg'
+import reminderIcon from '../images/icon-reminders.svg'
+import planningIcon from '../images/icon-planning.svg'
+import iconClose from '../images/icon-close-menu.svg'
+import iconArrowDown from '../images/icon-arrow-down.svg'
+
+const featuredItems = [
+    {
+        label : 'Todo List',
+        imgSrc : todoIcon,
+        link: '#',
+    },
+    {
+        label : 'Calendar',
+        imgSrc : calendarIcon,
+        link: '#',
+    },
+    {
+        label : 'Reminders',
+        imgSrc : reminderIcon,
+        link: '#',
+    },
+    {
+        label : 'Planning',
+        imgSrc : planningIcon,
+        link: '#',
+    },
+]
+
+const companyInfoPages = [
+    {
+        label : 'History',
+        link : '#',
+    },
+    {
+        label : 'Our Team',
+        link : '#',
+    },
+    {
+        label : 'Blog',
+        link : '#',
+    },
+]
+---
+
+<div id="mobile" class="absolute top-0 left-0 min-h-screen w-full bg-accent bg-opacity-75 lg:hidden not-visible">
+    <nav class="absolute right-0 w-[240px] md:w-[340px] h-full bg-white flex flex-col pt-[21.98px] pl-6 pr-[21px] animate__animated animate__fadeInRight">
+        <button id="close" aria-label="Close mobile menu" class="mb-[31.98px] self-end">
+            <Image src={iconClose} alt='' width={24.042} height={24.042}/>
+        </button>
+        <ul class="flex flex-col gap-4 mb-8">
+            <li>
+                <button type="button" class="flex items-center gap-[17px] text-primary text-base font-medium leading-[1.625rem] show">
+                Features
+                <Image src={iconArrowDown} alt='' width={8} height={4}/>
+                </button>
+
+            
+                <div class="flex flex-col gap-4 pl-6 not-visible">
+                {
+                    featuredItems.map(item => (
+                        <a href={item.link} class="flex gap-4 items-center first:mt-4 last:mb-6">
+                            <Image src={item.imgSrc} alt='' />
+                            <p class="text-primary hover:text-accent focus:text-accent text-base font-medium leading-[1.625rem]">{item.label}</p>
+                        </a>
+                    ))
+                }
+                </div>
+           
+            </li>
+
+            <li>
+                <button type="button" class="flex items-center gap-[17px] text-primary text-base font-medium leading-[1.625rem] show">
+                Company
+                <Image src={iconArrowDown} alt='' width={8} height={4}/>
+                </button>
+                <div class="flex flex-col gap-4 not-visible">
+                {
+                    companyInfoPages.map(item => (
+                        <a href={item.link} class="ml-6 text-primary hover:text-accent focus:text-accent text-base font-medium leading-[1.625rem] first:mt-[18px] last:mb-2">{item.label}</a>
+                    ))
+                }
+                </div>
+            </li>
+
+            <li>
+                <a href="#" class="text-primary hover:text-accent focus:text-accent text-base font-medium leading-[1.625rem]">Careers</a>
+            </li>
+
+            <li>
+                <a href="#" class="text-primary hover:text-accent focus:text-accent text-base font-medium leading-[1.625rem]">About</a>
+            </li>
+        </ul>
+
+        <div class="flex flex-col items-center gap-4">
+            <a href="#" class="text-primary text-sm font-medium leading-4">Login</a>
+            <a href="#" class="text-primary hover:text-accent focus:text-accent text-sm leading-4 border rounded-[14px] border-primary hover:border-accent focus:border-accent py-[13px] pl-[43.13px] pr-[41.25px]">Register</a>
+        </div>
+    </nav>
+</div>

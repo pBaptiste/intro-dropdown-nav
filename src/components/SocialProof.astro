@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import databiz from '../images/client-databiz.svg'
+import audiophile from '../images/client-audiophile.svg'
+import meet from '../images/client-meet.svg'
+import maker from '../images/client-maker.svg'
+
+const clients = [
+    {
+        src: databiz,
+        name: 'Databiz',
+        styles: 'w-[81.251px] h-[14.362px] lg:w-[113.144px] lg:h-5',
+    },
+    {
+        src: audiophile,
+        name: 'Audiophile',
+        styles: 'w-[52.867px] h-[26px] lg:w-[73px] lg:h-[35.902px]',
+    },
+    {
+        src: meet,
+        name: 'Meet',
+        styles: 'w-[64.138px] h-[14.362px] lg:w-[89.313px] lg:h-5',
+    },
+    {
+        src: maker,
+        name: 'Maker',
+        styles: 'w-[58.896px] h-[17.235px] lg:w-[82.014px] lg:h-6',
+    },
+]
+---
+
+<div class="flex justify-between lg:justify-start lg:gap-[40.48px] items-center">
+    {
+        clients.map(item => (
+            <Image src={item.src} alt={`${item.name} company logo`} class={`${item.styles}`}/>
+        ))
+    }
+</div>

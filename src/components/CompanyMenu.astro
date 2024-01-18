@@ -1,0 +1,24 @@
+---
+const companyInfoPages = [
+    {
+        label : 'History',
+        link : '#',
+    },
+    {
+        label : 'Our Team',
+        link : '#',
+    },
+    {
+        label : 'Blog',
+        link : '#',
+    },
+]
+---
+
+<div class="absolute top-[30px] left-0 shadow-menu bg-white rounded-[10px] w-[116px] h-[128px] pt-6 pl-[25px] flex flex-col gap-4 animate__animated animate__fadeIn not-visible">
+    {
+        companyInfoPages.map(item => (
+            <a href={item.link} class="text-primary hover:text-accent focus:text-accent text-sm font-medium leading-4">{item.label}</a>
+        ))
+    }
+</div>

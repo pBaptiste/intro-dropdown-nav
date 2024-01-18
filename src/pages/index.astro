@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import SocialProof from '../components/SocialProof.astro';
+import heroMobile from '../images/image-hero-mobile.png'
+import heroDesktop from '../images/image-hero-desktop.png'
+---
+
+<Layout title="Intro Section With Dropdown Menu">
+	<main class="w-full max-w-[500px] lg:max-w-[1145px] min-h-screen my-0 mx-auto">
+		<section class="flex flex-col lg:flex-row lg:justify-between lg:px-10">
+			<div class="w-full h-[281.25px] lg:w-[480px] lg:h-[640px] mb-[47.75px] lg:order-2 lg:flex-none">
+				<ResponsiveImage imgMobile={heroMobile} imgDesktop={heroDesktop} alt="Site Hero Illustration"/>
+			</div>
+			<div class="px-4 lg:pl-0 lg:pr-2 lg:order-1 lg:max-w-[540px] lg:mt-[104px]">
+				<div class="flex flex-col items-center lg:items-start mb-12 lg:mb-[116px]">
+					<h1 class="text-center lg:text-start text-accent text-[2.25rem] lg:text-[5rem] font-bold leading-[2.625rem] lg:leading-[5rem] tracking-[-0.5px] lg:tracking-[-1.111px] mb-4 lg:mb-12">Make remote work</h1>
+					<p class="text-center lg:text-start text-base lg:text-[1.125rem] text-primary font-medium leading-[1.625rem] lg:leading-7 lg:max-w-[445px] mb-6 lg:mb-[61px]">Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+					<a href="#" class="bg-accent border border-accent hover:bg-transparent focus:bg-transparent outline-none text-white hover:text-accent focus:text-accent transition-all duration-500 text-base lg:text-[1.125rem] font-bold leading-[1.625rem] lg:leading-7 tracking-[-0.222px] lg:tracking-[-0.25px] pt-3 lg:pt-[15px] pb-[10px] lg:pb-[13px] pl-6 lg:pl-[31px] pr-5 lg:pr-7 rounded-[15px]">Learn more</a>
+				</div>
+
+				<SocialProof />
+			</div>
+			
+		</section>
+	</main>
+</Layout>
+
+<script>
+	window.addEventListener('DOMContentLoaded', () => {
+		const showBtns = document.querySelectorAll('.show');
+		const menus = document.querySelectorAll('.not-visible');
+		const closeBtn = document.querySelector('#close');
+		const mobileMenu = document.querySelector('#mobile')
+
+		showBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const menu = btn.nextElementSibling;
+				const arrow = btn.firstElementChild;
+
+				if (menu) {
+					menu.classList.toggle('not-visible');
+				}
+
+				if (arrow) {
+					arrow.classList.toggle('rotate');
+				}
+			})
+		})
+
+		closeBtn?.addEventListener('click', () => {
+			mobileMenu?.classList.add('not-visible')
+		})
+	})
+</script>
